@@ -1,4 +1,3 @@
-const { token } = require("morgan")
 const ResetPin = require("./resetPinSchema")
 const {randomPinNumber} = require("../../utils/randomPinGenerator")
 
