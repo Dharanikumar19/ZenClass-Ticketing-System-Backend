@@ -38,18 +38,6 @@ const ticketRouter = require("./routers/ticketRouter")
 app.use("/user", userRouter)
 app.use("/ticket", ticketRouter)
 
-//error handler
-const handleError = require("./utils/errorHandler")
-
-app.use((req, res, next) => {
-    const error = new Error("Resources not found!");
-    error.status = 404;
-    next(error);
-  });
-  
-  app.use((error, req, res, next) => {
-    handleError(error, res);
-  });
 
 
 
