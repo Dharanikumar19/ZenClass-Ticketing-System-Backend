@@ -116,6 +116,7 @@ router.post("/resetPassword", resetPassReqValidation, async (req, res) => {
 			"The password reset pin will be sent to your Email. Please Check!",
 	});
 });
+
 router.patch("/updatePassword",updatePassValidation, async (req,res) => {
     const {email, pin, newPassword} = req.body
 

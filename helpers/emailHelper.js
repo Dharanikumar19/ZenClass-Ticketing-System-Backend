@@ -43,7 +43,7 @@ const emailProcessor = ({ email, pin, type }) => {
           "Use this pin to update your password. This pin will expires in One day", // plain text body
         html: `<b>Hello User</b>
         Here is your Password Reset Pin 
-        <b>${pin} </b>
+        <b>${pin}</b>
         ,This pin will expires in One day
         <p></p>`, // html body
       };
