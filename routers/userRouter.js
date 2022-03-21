@@ -102,9 +102,8 @@ router.post("/resetPassword", resetPassReqValidation, async (req, res) => {
 	const user = await getUserByEmail(email);
 
 	if (user && user._id) {
-		/// crate// 2. create unique 6 digit pin
 		const setPin = await setPasswordResetPin(email);
-		await emailProcessor({
+		 emailProcessor({
 			email,
 			pin: setPin.pin,
 			type: "request-new-password",
@@ -135,7 +134,7 @@ router.patch("/updatePassword",updatePassValidation, async (req,res) => {
         const user = await updatePassword(email, passwordHash)
         
         if(user._id){
-        await emailProcessor({email, type: "update-password-success"})
+         emailProcessor({email, type: "update-password-success"})
 
         deletePin(email, pin);
 
