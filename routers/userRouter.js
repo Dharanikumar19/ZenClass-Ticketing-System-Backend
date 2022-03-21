@@ -103,7 +103,7 @@ router.post("/resetPassword", resetPassReqValidation, async (req, res) => {
 
 	if (user && user._id) {
 		const setPin = await setPasswordResetPin(email);
-		 emailProcessor({
+		await emailProcessor({
 			email,
 			pin: setPin.pin,
 			type: "request-new-password",
@@ -135,7 +135,7 @@ router.patch("/updatePassword",updatePassValidation, async (req,res) => {
         const user = await updatePassword(email, passwordHash)
         
         if(user._id){
-         emailProcessor({email, type: "update-password-success"})
+        await emailProcessor({email, type: "update-password-success"})
 
         deletePin(email, pin);
 
